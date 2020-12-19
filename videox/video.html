@@ -1,0 +1,103 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Video - 
+{% endblock %}
+
+
+{% block body %}
+<div class="row">
+  <div class="col-md-8">
+<h3><i class="fa fa-envelope-open" aria-hidden="true"></i>  {{ video.title }}</h3>
+
+<video width="720" height="480" style="max-width: 100%;" controls controlslist="nodownload" autoplay>
+    <source src="{{ video.path }}" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+<p><b><i class="fa fa-sticky-note" aria-hidden="true"></i> About the video: </b> {{ video.description }}</p>
+<br><br>
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$       IGNORE TILL OTHERWISE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<hr>
+  <div class="jumbotron">
+    <h4>Share</h4>
+    <!-- Facebook -->
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <i class="fa fa-share-alt fa-3x" aria-hidden="true"></i>
+      </li>
+      <li class="list-inline-item">
+    <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
+      <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+    </a>
+    </li>
+  
+    <!-- LinkedIn -->
+    <li class="list-inline-item">
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://simplesharebuttons.com" target="_blank">
+      <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+    </a>
+    </li>
+  
+    <!-- Pinterest -->
+    <li class="list-inline-item">
+    <a
+      href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+      <i class="fa fa-pinterest fa-2x" aria-hidden="true"></i>
+    </a>
+    </li>
+  
+    <!-- Print -->
+    <li class="list-inline-item">
+    <a href="javascript:;" onclick="window.print()">
+      <i class="fa fa-print fa-2x" aria-hidden="true"></i>
+    </a>
+  </li>
+    <!-- Reddit -->
+    <li class="list-inline-item">
+    <a href="http://reddit.com/submit?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons" target="_blank">
+      <i class="fa fa-reddit fa-2x" aria-hidden="true"></i>
+    </a>
+  </li>
+  
+    <!-- Twitter -->
+    <li class="list-inline-item">
+    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons"
+      target="_blank">
+      <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+    </a>
+    </li>
+  </ul>
+</div>
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   STOP IGNORING      $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+  <div class="container-fluid">
+  <h3><i class="fa fa-comments" aria-hidden="true"></i>  Comments: </h3>
+  <hr>
+{% if form %}
+<form action="/comment" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type='hidden' name='video' value='{{ video.id }}'> | 
+    <button type="submit" class="btn btn-primary">Post</button>
+</form>
+{% endif %}
+
+{% for comment in comments %}
+<p>
+<i class="fa fa-user-circle" aria-hidden="true"></i> {{ comment.user }} | <i class="fa fa-calendar" aria-hidden="true"></i> {{ comment.datetime }} <br>
+{{ comment.text }}
+</p>
+{% endfor %}
+</div>
+
+</div>
+
+<div class="col-md-4">
+  <p style="background-color: silver; text-align:center; ">Out of the box!</p>
+  <a class="twitter-timeline" href="https://twitter.com/naval?ref_src=twsrc%5Etfw">Tweets by naval</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+</div>
+
+{% endblock %}

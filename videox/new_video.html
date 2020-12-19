@@ -1,0 +1,29 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Upload Video
+{% endblock %}
+
+{% block body %}
+<div class="row">
+<div class="col-md-6">
+        <h3> Uploading .... </h3>
+        <hr>
+        <div class="container" style="text-align: center;">
+<form action="new_video" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+<table>
+        <tr>
+{{ form.as_table }}
+        </tr>
+<tr>
+    <td><button type="submit" class="btn btn-primary">Upload Video</button>
+    </td>
+</tr>
+</table>
+</form>
+</div>
+<hr>
+</div>
+</div>
+{% endblock %}

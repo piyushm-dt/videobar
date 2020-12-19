@@ -1,0 +1,21 @@
+{% extends "parent.html" %}
+
+{% block title %}
+LogIn to 
+{% endblock %}
+
+{% block body %}
+{% load crispy_forms_tags %}
+<br>
+<hr>
+<p style="text-align: center; background-color:palevioletred;"> Please login here!</p>
+<div class="container" style="text-align:center; background-color: cornflowerblue;">
+<form action="login" method="POST" role="form">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <br>
+    <button type="submit" class="btn btn-dark" role="button">Log In</button>
+    <hr>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "parent.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+<br>
+
+{% for video in most_recent_videos %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <a href='/video/{{ video.id }}'>
+      <video style="max-width: 100%;" width="280" height="140" controls poster="{{ video.pathImage }}">
+        <source src='{{ video.path.url }}' type="video/mp4">
+      </video>
+    </a>
+    </div>
+    <div class="col-md-4">
+      <a href='/video/{{ video.id}}'> 
+              <h5 class="card-title"><i class="fa fa-envelope" aria-hidden="true"></i> {{ video.title }}</h5>
+              <p class="lead" style="font-style: oblique;"><i class="fa fa-sticky-note" aria-hidden="true"></i> {{ video.description }}</p>
+              <p style="font-size: 10px; color:gray;"><i class="fa fa-user-circle" aria-hidden="true"></i> {{ video.user }} | <i class="fa fa-calendar" aria-hidden="true"></i> {{ video.datetime }}</p>
+      </a>
+        </div>
+  </div>
+        <hr style="background-color: chartreuse">
+</div>
+{% endfor %}
+<hr style="background-color: black">
+
+{% endblock %}

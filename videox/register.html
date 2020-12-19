@@ -1,0 +1,21 @@
+{% extends "parent.html" %}
+
+{% block title %}
+SignUp to 
+{% endblock %}
+
+{% block body %}
+{% load crispy_forms_tags %}
+<h4 style="text-align:center; background-color: paleturquoise;">Create Your Account</h4>
+<hr>
+<br>
+<div class="container" style="text-align: center; background-color: cornflowerblue;">
+<form action="register" method="POST" >
+        {% csrf_token %}
+        {{ form|crispy}}
+        <br>
+        <button type="submit" class="btn btn-primary">Create Account!</button>
+        <hr>
+</form>
+</div>
+{% endblock %}
