@@ -9,15 +9,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False#True
+DEBUG = False
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = True
-SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
-#SECURE_HSTS_SECONDS = 600
-#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-#SECURE_HSTS_PRELOAD = True
 
 ALLOWED_HOSTS = ["shade46.herokuapp.com","127.0.0.1","localhost"]
 
@@ -78,6 +74,7 @@ DATABASES = {
         'PORT':'5432',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
