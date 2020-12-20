@@ -13,7 +13,6 @@ DEBUG = False
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ["shade46.herokuapp.com","127.0.0.1","localhost"]
 
