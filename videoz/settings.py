@@ -71,10 +71,10 @@ WSGI_APPLICATION = 'videoz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'youtube_python',
-        'USER': 'marcus',
-        'PASSWORD':'mATicSURf',
-        'HOST':'127.0.0.1',
+        'NAME': 'd43flulq1msf6',
+        'USER': 'epibaenljhnbhd',
+        'PASSWORD': 'e5688c446bb9981c9a7fa2f4fb62b4b38712445547dba15f59b85e490590f202',
+        'HOST': 'ec2-3-231-16-122.compute-1.amazonaws.com',
         'PORT':'5432',
     }
 }
