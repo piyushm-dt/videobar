@@ -19,6 +19,16 @@ class VideoFileView(View):
         return response
 
 
+class ImageFileView(View):
+
+    def get(self, request, file_name):
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        file = FileWrapper(open(BASE_DIR+'/static_cdn/media/'+file_name, 'rb'))
+        response = HttpResponse(file, content_type='image/png')
+        response['Content-Disposition'] = 'attachment; filename={}'.format(
+            file_name)
+        return response
+
 class HomeView(View):
     template_name = 'index.html'
     def get(self, request):

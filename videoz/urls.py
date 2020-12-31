@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.urls import include, path
-from videox.views import HomeView, NewVideo, CommentView, LoginView, RegisterView, VideoView, VideoFileView,LogoutView
+from videox.views import HomeView, NewVideo, CommentView, LoginView, RegisterView, VideoView, VideoFileView, ImageFileView, LogoutView
 from django.conf import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls import url
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,6 +16,7 @@ urlpatterns = [
     path('video/<int:id>', VideoView.as_view()),
     path('comment', CommentView.as_view()),
     path('static_cdn/media/<file_name>', VideoFileView.as_view()),
+    path('static_cdn/media/<file_name>', ImageFileView.as_view()),
     path('logout', LogoutView.as_view())
 ]
 
